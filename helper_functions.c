@@ -26,7 +26,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-long ft_atol(char *s)
+long	ft_atol(char *s)
 {
 	long int	result;
 	int			sign;

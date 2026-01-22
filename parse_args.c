@@ -38,7 +38,7 @@ static int	handle_token(t_stack **a, char *token)
 	if (!is_valid_int_token(token) || !is_in_range_int(token))
 		return (0);
 	num = ft_atoi(token);
-	if (has_duplicate(*a, num))
+	if (!has_duplicate(*a, num))
 		return (0);
 	node = new_node(num);
 	if (!node)
