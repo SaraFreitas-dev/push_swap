@@ -64,6 +64,31 @@ static int has_duplicate(t_stack *stack, int value)
 	return (1);
 }
 
+// Add nodes to the back or front of stack a on parse_args
+
+void	add_node(t_stack **lst, t_stack *new, char *type)
+{
+	t_stack	*last;
+
+	if (!lst || !new)
+		return ;
+	if (ft_strcmp(type, "back"))
+	{
+		if (*lst == NULL)
+			*lst = new;
+		else
+		{
+			last = ft_lstlast(*lst);
+			last->next = new;
+		}
+	}
+	else if (ft_strcmp(type, "front"))
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
 // Split the string and prepare the stack a
 
 int	parse_args(t_stack **a, int argc, char *argv[])
@@ -90,7 +115,7 @@ int	parse_args(t_stack **a, int argc, char *argv[])
 			ft_printf("Error\n");
 			return (0);
 		}
-		current_node->next = ft_lstnew(argv[i++]);
+		current_node->value = add_node(argv[i++]);
 	}
 	return (1);
 }

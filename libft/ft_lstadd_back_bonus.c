@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 19:19:11 by sarfreit          #+#    #+#             */
-/*   Updated: 2025/10/23 20:35:45 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:54:24 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		last->next = new;
 	}
 }
+
 /*
 #include <stdio.h>
 
