@@ -6,12 +6,12 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/21 23:38:12 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:44:31 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
@@ -31,13 +31,20 @@ typedef struct s_ps
     int     size_b;
 }   t_ps;
 
-//move_operations.c
-int	swap_nodes(t_stack **stack);
-int	push_nodes(t_stack **stack1, t_stack **stack2);
-int	rotate_nodes(t_stack **stack);
-int	reverse_rotate(t_stack **stack);
+// move_operations.c
+int			swap_nodes(t_stack **stack);
+int			push_nodes(t_stack **stack1, t_stack **stack2);
+int			rotate_nodes(t_stack **stack);
+int			reverse_rotate(t_stack **stack);
 
-//helper_functions.c
-int	ft_strcmp(const char *s1, const char *s2);
+// helper_functions.c
+int			ft_strcmp(const char *s1, const char *s2);
+long ft_atol(char *s);
+
+// print_operationc.c
+void		print_moves(char *op, t_stack **a, t_stack **b);
+
+// parse_args.c | Check for errors and prepare stack
+int	parse_args(t_stack **a, int argc, char *argv[]);
 
 #endif
