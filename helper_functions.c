@@ -51,3 +51,40 @@ long ft_atol(char *s)
 	return (result * sign);
 }
 
+// Add nodes to the back or front of stack a on parse_args
+
+void	add_node(t_stack **lst, t_stack *new, char *type)
+{
+	t_stack	*last;
+
+	if (!lst || !new || !type)
+		return ;
+	new->next = NULL;
+	if (type[0] == 'b')
+	{
+		if (*lst == NULL)
+			*lst = new;
+		else
+		{
+			last = ft_lstlast(*lst);
+			last->next = new;
+		}
+	}
+	else if (type[0] == 'f')
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
+t_stack	*new_node(int value)
+{
+	t_stack	*node;
+
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->next = NULL;
+	return (node);
+}

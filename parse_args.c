@@ -12,110 +12,58 @@
 
 #include "push_swap.h"
 
-// Only digits and one sign
+// Split the string and prepare the stack a
 
-static int is_valid_int_token(char *s)
+void	free_split(char **tokens)
 {
 	int	i;
 
-	i = 0;
-	if (!s || !s[0])
-		return (0);
-	if ((s[i] == '-') || s[i] == '+')
-		i++;
-	if (!ft_isdigit(s[i]))
-		return (0);
-	while (s[i])
-	{
-		if (!ft_isdigit(s[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-// Check if num is not exceeding the integer limits
-
-static int is_in_range_int(char *s)
-{
-	long	num;
-	
-	num = ft_atol(s);
-	if ((num >= -2147483648L) && (num <= 2147483647L))
-		return (1);
-	return (0);
-}
-
-// Check for duplicate numbers
-
-static int has_duplicate(t_stack *stack, int value)
-{
-	t_stack	*current_node;
-
-	if (!stack)
-		return (1);
-	current_node = stack;
-	while (current_node)
-	{
-		if (current_node->value == value)
-			return (0);
-		current_node = current_node->next;
-	}
-	return (1);
-}
-
-// Add nodes to the back or front of stack a on parse_args
-
-void	add_node(t_stack **lst, t_stack *new, char *type)
-{
-	t_stack	*last;
-
-	if (!lst || !new)
+	if (!tokens)
 		return ;
-	if (ft_strcmp(type, "back"))
+	i = 0;
+	while (tokens[i])
 	{
-		if (*lst == NULL)
-			*lst = new;
-		else
-		{
-			last = ft_lstlast(*lst);
-			last->next = new;
-		}
+		free(tokens[i]);
+		i++;
 	}
-	else if (ft_strcmp(type, "front"))
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	free(tokens);
 }
 
-// Split the string and prepare the stack a
 
+static int	handle_token(t_stack **a, char *token)
+{
+	int		num;
+	t_stack	*node;
+
+	if (!is_valid_int_token(token) || !is_in_range_int(token))
+		return (0);
+	num = ft_atoi(token);
+	if (has_duplicate(*a, num))
+		return (0);
+	node = new_node(num);
+	if (!node)
+		return (0);
+	add_node(a, node, "back");
+	return (1);
+}
 int	parse_args(t_stack **a, int argc, char *argv[])
 {
 	int		i;
-	int		num;
-	char	tokens;
-	t_stack	*current_node;
+	int		j;
+	char	**tokens;
 
 	i = 1;
-	current_node = *a;
-	while (argv[i])
+	while (i < argc)
 	{
 		tokens = ft_split(argv[i], ' ');
-		if (!tokens || !tokens[0]
-				||!is_valid_int_token(argv[i]) || !is_in_range_int(argv[i]))
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
-		num = ft_atoi(argv[i]);
-		if (!has_duplicate(*a, num))
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
-		current_node->value = add_node(argv[i++]);
+		if (!tokens || !tokens[0])
+			return (free_split(tokens), 0);
+		j = 0;
+		while (tokens[j])
+			if (!handle_token(a, tokens[j++]))
+				return (free_split(tokens), 0);
+		free_split(tokens);
+		i++;
 	}
 	return (1);
 }
