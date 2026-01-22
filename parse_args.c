@@ -46,6 +46,7 @@ static int	handle_token(t_stack **a, char *token)
 	add_node(a, node, "back");
 	return (1);
 }
+
 int	parse_args(t_stack **a, int argc, char *argv[])
 {
 	int		i;
