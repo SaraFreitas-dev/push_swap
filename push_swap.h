@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 13:28:51 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/23 22:20:56 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ typedef struct s_ps
 // helper_functions.c
 int			ft_strcmp(const char *s1, const char *s2);
 long 		ft_atol(char *s);
-void		add_node(t_stack **lst, t_stack *new, char *type);
-t_stack		*new_node(int value);
 
 // stack_uitls.c | Check size, verify, find and prepare the stack a
 t_stack		*last_node(t_stack *stack);
 void		add_node(t_stack **lst, t_stack *new, char *type);
 t_stack		*new_node(int value);
 int			stack_size(t_stack *stack);
+void		free_stack(t_stack **stack);
 
 // stack_sort.c | Check size, verify, find and prepare the stack a
 int			is_sorted(t_stack *stack);
@@ -71,7 +70,10 @@ void		print_moves(char *op, t_stack **a, t_stack **b);
 int			parse_args(t_stack **a, int argc, char *argv[]);
 
 // sort_small_alg.c | Sorts in 3's and 5's
-void	sort_three(t_stack **a, t_stack **b);
+void		sort_three(t_stack **a, t_stack **b);
+void		sort_five(t_stack **a, t_stack **b);
 
+// FOR TESTS ONLY - Main and is_sort
+void		print_op_test(t_stack *a, t_stack *b);
 
 #endif

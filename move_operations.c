@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:58:14 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/21 23:14:34 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:50:27 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,6 @@ The first element becomes the last one.
 rr : ra and rb at the same time.
 */
 
-t_stack	*last_element(t_stack *stack)
-{
-	t_stack	*node;
-
-	if (!stack)
-		return (NULL);
-	node = stack;
-	while (node->next)
-		node = node->next;
-	return (node);
-}
-
 int	rotate_nodes(t_stack **stack)
 {
 	t_stack	*head;
@@ -88,7 +76,7 @@ int	rotate_nodes(t_stack **stack)
 	head = *stack;
 	*stack = head->next;
 	head->next = NULL;
-	last = last_element(*stack);
+	last = last_node(*stack);
 	last->next = head;
 	return (1);
 }
@@ -108,7 +96,7 @@ int	reverse_rotate(t_stack **stack)
 
 	if (!stack || !*stack || !(*stack)->next)
 		return (0);
-	head = last_element(*stack);
+	head = last_node(*stack);
 	prev_last = *stack;
 	while (prev_last->next != head)
 		prev_last = prev_last->next;

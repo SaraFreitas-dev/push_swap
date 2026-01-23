@@ -122,21 +122,39 @@ It returns simply OK or KO.
 ```bash
 ./push_swap 3 2 1 | ./checkers/checker_linux 3 2 1
 ```
+Or
+
+```bash
+ARG="5 4 3 2 1"; ./push_swap $ARG | ./checkers/checker_linux $ARG
+```
+
+Or...best of all...a random number generator ! !
+```bash
+ARG=$(shuf -i 0-1000 -n 100 | tr '\n' ' ')
+./push_swap $ARG | ./checkers/checker_linux $ARG
+```
+
+You can also check the amount of operations performed to sort ARG by adding "wc -l"
+
+```bash
+ARG="5 4 3 2 1"; ./push_swap $ARG | wc -l
+```
 
 If the input is already sorted, the program produces no output.
 
 # Check for Leaks
 ```bash
-valgrind --leak-check=full --show-leak-kinds=all ./test_mandatory
+valgrind --leak-check=full --show-leak-kinds=all ./push_swap
 ```
 ```bash
-valgrind --leak-check=full --show-leak-kinds=all ./test_bonus
+valgrind --leak-check=full --show-leak-kinds=all ./push_swap_bonus
 ```
 ---
 
 ## Resources
 
 - 42 School subject: `push_swap`  
+- The following website: https://medium.com/@ulysse.gks/push-swap-in-less-than-4200-operations-c292f034f6c0
 - Manual pages for stack manipulation and sorting concepts  
 - Official 42 documentation and peer discussions  
 - Use of AI to clarify pointer manipulation and linked list logic

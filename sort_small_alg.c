@@ -28,3 +28,35 @@ void	sort_three(t_stack **a, t_stack **b)
 	if ((*a)->value > (*a)->next->value)
 		print_moves("sa", a, b);
 }
+
+void	sort_five(t_stack **a, t_stack **b)
+{
+	t_stack	*min;
+	int		pos;
+	int		size;
+
+	if (!a || !*a || !(*a)->next)
+		return ;
+	size = stack_size(*a);
+	while (size > 3)
+	{
+		min = stack_min_node(*a);
+		pos = position_of_node(*a, min);
+		if (pos <= (size / 2))
+			while (pos-- > 0)
+				print_moves("ra", a, b);
+		else
+			while ((size - (pos++)) > 0)
+				print_moves("rra", a, b);
+		print_moves("pb", a, b);
+		size--;
+		print_op_test(*a, *b);
+	}
+	sort_three(a, b);
+	print_op_test(*a, *b);
+	if (((*b)->next) && ((*b)->value < (*b)->next->value))
+		print_moves("sb", a, b);
+	while (*b)
+		print_moves("pa", a, b);
+	print_op_test(*a, *b);
+}
