@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:31 by sarfreit         ###   ########.fr       */
+/*   Created: 2025/10/12 20:07:07 by sarfreit          #+#    #+#             */
+/*   Updated: 2025/10/12 20:07:07 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	i;
+	int	len;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_args(&a, argc, argv))
+	i = 0;
+	len = ft_strlen(s);
+	while (i <= len)
 	{
-		ft_putendl_fd("Error", 2);
-		return (1);
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	if (is_sorted(a))
-		return (0);
-	assign_index(a);
-	sort_dispatcher(&a, &b);
-	return (0);
+	return (NULL);
 }
+/*
+#include <stdio.h>
 
+int	main(void)
+{
+	const char	*s = "hello";
+	int			c = 'e';
+	printf("%s", ft_strchr(s, c));
+}
+*/

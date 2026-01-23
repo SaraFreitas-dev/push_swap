@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:31 by sarfreit         ###   ########.fr       */
+/*   Created: 2025/10/12 21:00:00 by sarfreit          #+#    #+#             */
+/*   Updated: 2025/10/12 21:00:00 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_stack	*a;
-	t_stack	*b;
+	size_t	i;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_args(&a, argc, argv))
+	i = 0;
+	while ((i < n) && (s1[i] || s2[i]))
 	{
-		ft_putendl_fd("Error", 2);
-		return (1);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	if (is_sorted(a))
-		return (0);
-	assign_index(a);
-	sort_dispatcher(&a, &b);
 	return (0);
 }
+/*
+#include <stdio.h>
 
+int	main(void)
+{
+	char *s1 = "hi";
+	char *s2 = "hI";
+
+	printf("%d\n", ft_strncmp(s1, s2, 3));
+}
+*/

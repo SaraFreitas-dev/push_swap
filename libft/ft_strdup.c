@@ -1,35 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:31 by sarfreit         ###   ########.fr       */
+/*   Created: 2025/10/18 21:16:02 by sarfreit          #+#    #+#             */
+/*   Updated: 2025/10/18 21:16:02 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *s1)
 {
-	t_stack	*a;
-	t_stack	*b;
+	size_t	i;
+	char	*dest;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_args(&a, argc, argv))
+	i = 0;
+	if (!s1)
+		return (NULL);
+	dest = malloc(ft_strlen(s1) + 1);
+	if (!dest)
+		return (NULL);
+	while (s1[i])
 	{
-		ft_putendl_fd("Error", 2);
-		return (1);
+		dest[i] = s1[i];
+		i++;
 	}
-	if (is_sorted(a))
-		return (0);
-	assign_index(a);
-	sort_dispatcher(&a, &b);
+	dest[i] = '\0';
+	return (dest);
+}
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*s1 = "hello";
+	char	*dest = ft_strdup(s1);
+
+	printf("%s", dest);
+
 	return (0);
 }
-
+*/

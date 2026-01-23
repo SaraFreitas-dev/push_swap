@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:31 by sarfreit         ###   ########.fr       */
+/*   Created: 2025/09/27 15:39:15 by sarfreit          #+#    #+#             */
+/*   Updated: 2025/09/27 15:39:15 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
-	t_stack	*a;
-	t_stack	*b;
+	char	*temp;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_args(&a, argc, argv))
+	temp = (char *) s;
+	while (n > 0)
 	{
-		ft_putendl_fd("Error", 2);
-		return (1);
+		*temp = 0;
+		temp++;
+		n--;
 	}
-	if (is_sorted(a))
-		return (0);
-	assign_index(a);
-	sort_dispatcher(&a, &b);
-	return (0);
 }
+/*
+int main(void)
+{
+    char str[20] = "Hello World!";
+    printf("Before: %s\n", str);
 
+    ft_bzero(str + 6, 5); // zero 5 bytes after index 6
+
+    printf("After:  %s\n", str); 
+    return (0);
+}
+*/

@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:31 by sarfreit         ###   ########.fr       */
+/*   Created: 2025/09/07 20:57:54 by sarfreit          #+#    #+#             */
+/*   Updated: 2025/09/07 20:57:54 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isascii(int c)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_args(&a, argc, argv))
-	{
-		ft_putendl_fd("Error", 2);
+	if (c >= 0 && c <= 127)
 		return (1);
-	}
-	if (is_sorted(a))
+	else
 		return (0);
-	assign_index(a);
-	sort_dispatcher(&a, &b);
-	return (0);
 }
 
+/*
+int	main(void)
+{
+	char is_ascii = '1';
+	char is_not = 0x80;
+
+	printf("ascii: %d, not ascii: %d\n",
+    ft_isalnum(is_ascii),
+    ft_isalnum(is_not));
+
+	return (0);
+}
+*/

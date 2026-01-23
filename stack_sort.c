@@ -31,20 +31,17 @@ int	is_sorted(t_stack *stack)
 }
 // Choose the sort mechanism
 
-int	sort_dispatcher(t_stack **a, t_stack **b)
+void	sort_dispatcher(t_stack **a, t_stack **b)
 {
     int 	size_a;
-	t_stack	*node;
-    
-	node = *a;
-	if (is_sorted(a))
-		return (1);
+
+	if (is_sorted(*a))
+		return ;
     size_a = stack_size(*a);
     if (size_a <= 3)
         sort_three(a);
     else if (size_a <= 5)
-        sort_five(a);
+        sort_five(a, b);
     else
         turk_sort(a, b);
-	return (0);
 }

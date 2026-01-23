@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:31 by sarfreit         ###   ########.fr       */
+/*   Created: 2025/09/07 21:16:19 by sarfreit          #+#    #+#             */
+/*   Updated: 2025/09/07 21:16:19 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	t_stack	*a;
-	t_stack	*b;
+	size_t	i;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_args(&a, argc, argv))
-	{
-		ft_putendl_fd("Error", 2);
-		return (1);
-	}
-	if (is_sorted(a))
-		return (0);
-	assign_index(a);
-	sort_dispatcher(&a, &b);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+/*
+int	main(void)
+{
+	char *s = "Hello there";
+
+	printf("lent: %d\n", ft_strlen(s));
+
 	return (0);
 }
-
+*/

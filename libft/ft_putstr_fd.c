@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:31 by sarfreit         ###   ########.fr       */
+/*   Created: 2025/10/20 18:12:18 by sarfreit          #+#    #+#             */
+/*   Updated: 2025/10/20 18:12:18 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	i;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_args(&a, argc, argv))
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
 	{
-		ft_putendl_fd("Error", 2);
-		return (1);
+		write (fd, &s[i], 1);
+		i++;
 	}
-	if (is_sorted(a))
-		return (0);
-	assign_index(a);
-	sort_dispatcher(&a, &b);
+}
+/*
+int	main(void)
+{
+	char	*s = "Hello!";
+	ft_putstr_fd(s, 1);
+
 	return (0);
 }
-
+*/

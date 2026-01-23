@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:22:54 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/23 01:43:23 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			stack_size(t_stack *stack);
 
 // stack_sort.c | Check size, verify, find and prepare the stack a
 int			is_sorted(t_stack *stack);
-int			sort_dispatcher(t_stack **a, t_stack **b);
+void		sort_dispatcher(t_stack **a, t_stack **b);
 
 // stack_pos.c  | Positions, index, min and max node values
 t_stack		*stack_min_node(t_stack *stack);
