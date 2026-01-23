@@ -29,6 +29,7 @@ void	free_split(char **tokens)
 	free(tokens);
 }
 
+// If it passes all checks, creates the stack a
 
 static int	handle_token(t_stack **a, char *token)
 {

@@ -14,45 +14,69 @@
 # Compiler and flags
 # --------------------------------------------------------------------------- #
 CC      := gcc
-CFLAGS  := -Wall -Wextra -Werror -I .
+CFLAGS  := -Wall -Wextra -Werror
+INCS    := -I . -I libft -I ft_printf
 
 # --------------------------------------------------------------------------- #
 # Library name
 # --------------------------------------------------------------------------- #
-NAME    := libft.a
+NAME    := push_swap
+
+LIBFT_DIR  := libft
+LIBFT_A    := $(LIBFT_DIR)/libft.a
+
+PRINTF_DIR := ft_printf
+PRINTF_A   := $(PRINTF_DIR)/ftprintf.a
 
 # --------------------------------------------------------------------------- #
 # Mandatory part sources
 # --------------------------------------------------------------------------- #
-SRCS    := ft_strlen.c \
-           ft_putchar_fd.c \
-           ft_putstr_fd.c \
-           ft_putnbr_fd.c
+SRCS    := error_checker.c \
+		   helper_functions.c \
+           main.c \
+           move_operations.c \
+           parse_args.c \
+		   print_operations.c \
+		   stack_pos.c \
+		   stack_sort.c \
+		   stack_utils.c
 
 OBJS    := $(SRCS:.c=.o)
 
 # --------------------------------------------------------------------------- #
 # Rules
 # --------------------------------------------------------------------------- #
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $^
+$(LIBFT_A):
+	$(MAKE) -C $(LIBFT_DIR)
+
+$(PRINTF_A):
+	$(MAKE) -C $(PRINTF_DIR)
+
+$(NAME): $(OBJS) $(LIBFT_A) $(PRINTF_A)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) $(PRINTF_A) -o $(NAME)
 
 # --------------------------------------------------------------------------- #
 # Generic compile rule
 # --------------------------------------------------------------------------- #
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 # --------------------------------------------------------------------------- #
 # Clean rules
 # --------------------------------------------------------------------------- #
 clean:
 	rm -f $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
+
 
 re: fclean all
 

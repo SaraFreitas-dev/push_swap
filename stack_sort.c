@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatcher.c                                       :+:      :+:    :+:   */
+/*   stack_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 20:58:19 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/07 19:53:29 by sarfreit         ###   ########.fr       */
+/*   Created: 2026/01/23 00:14:29 by sarfreit          #+#    #+#             */
+/*   Updated: 2026/01/23 00:14:29 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Create the stack a
-void    parse_args(t_stack **a, int argc, char **argv)
+int	is_sorted(t_stack *stack)
 {
-    int i;
+	t_stack	*node;
+	t_stack	*next_node;
 
-    i = 1;
-    while (i < argc)
-    {
-        
-    }
+	node = stack;
+	if ( (!node) || (!node->next))
+		return (1);
+	while (node->next)
+	{
+		next_node = node->next;
+		if (node->value > next_node->value)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }
-// Calculate the size of each stack
-int stack_size(t_stack *stack)
-{
-    int i;
-
-    i = 0;
-    while (stack)
-    {
-        i++;
-        stack = stack->next;
-    }
-    return (i);
-}
-
 // Choose the sort mechanism
-void    sort_dispatcher(t_stack **a, t_stack **b)
+
+int	sort_dispatcher(t_stack **a, t_stack **b)
 {
-    int size_a;
+    int 	size_a;
+	t_stack	*node;
     
+	node = *a;
+	if (is_sorted(a))
+		return (1);
     size_a = stack_size(*a);
     if (size_a <= 3)
         sort_three(a);
@@ -49,4 +46,5 @@ void    sort_dispatcher(t_stack **a, t_stack **b)
         sort_five(a);
     else
         turk_sort(a, b);
+	return (0);
 }
