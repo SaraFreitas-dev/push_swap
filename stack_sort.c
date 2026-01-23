@@ -39,9 +39,9 @@ void	sort_dispatcher(t_stack **a, t_stack **b)
 		return ;
     size_a = stack_size(*a);
     if (size_a <= 3)
-        sort_three(a);
-    else if (size_a <= 5)
-        sort_five(a, b);
-    else
-        turk_sort(a, b);
+        sort_three(a, b);
+    // else if (size_a <= 5)
+    //     sort_five(a, b);
+    // else
+    //     turk_sort(a, b);
 }

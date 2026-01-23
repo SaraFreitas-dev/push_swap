@@ -7,13 +7,47 @@
 `push_swap` is a project from 42 School that focuses on sorting algorithms and
 data manipulation.
 
-The objective is to sort a list of integers in ascending order using two stacks
-and a limited set of allowed operations, while outputting the smallest possible
-sequence of instructions.
+The objective is to sort a list of integers in ascending order using two stacks and a limited set of allowed operations, while outputting the smallest possible sequence of instructions.
 
 The program works with:
 - **Stack A**, which initially contains the integers.
 - **Stack B**, which starts empty and is used as auxiliary storage.
+
+
+## Project Structure
+
+- **main.c**  
+  Program entry point. Initializes stacks, parses input, checks if the stack is already sorted, and calls the sorting dispatcher.
+
+- **push_swap.h**  
+  Main header file containing all struct definitions, function prototypes, and required library includes.
+
+- **error_checker.c**  
+  Input validation helpers used to detect errors such as non-numeric values, overflow, and duplicates.
+
+- **parse_args.c**  
+  Parses and validates input arguments. Builds stack A while checking for invalid numbers, duplicates, and integer limits.
+
+- **move_operations.c**  
+  Implements the core stack operations / moves (`sa`, `sb`, `pa`, `pb`, `ra`, `rb`, `rra`, `rrb`).
+
+- **print_operations.c**  
+  Executes stack operations and prints the corresponding instructions to the standard output.
+
+- **stack_utils.c**  
+  General stack utility functions (node creation, stack size, and basic helpers).
+
+- **stack_pos.c**  
+  Stack analysis helpers, including functions to find minimum/maximum nodes and a node’s position in the stack.
+
+- **stack_sort.c**  
+  Sorting logic and dispatcher. Selects the appropriate algorithm (`sort_three`, `sort_five`, or `turk_sort`) based on stack size.
+
+- **helper_functions.c**  
+  Miscellaneous helper functions used throughout the project.
+
+- **Makefile**  
+  Build configuration for compiling the project and linking required libraries.
 
 ---
 
@@ -38,7 +72,7 @@ The program works with:
 
 The program displays:
 
-Error
+"Error\n"
 
 and exits if:
 
@@ -78,6 +112,15 @@ It outputs the operations required to sort the stack. For example:
 ```bash
 sa  
 rra
+```
+
+## Checker
+
+To verify if the output of `push_swap` correctly sorts the stack, use the checker.
+It returns simply OK or KO.
+
+```bash
+./push_swap 3 2 1 | ./checker_linux 3 2 1
 ```
 
 If the input is already sorted, the program produces no output.

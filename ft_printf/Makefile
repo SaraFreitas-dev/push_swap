@@ -5,31 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/31 03:56:38 by sarfreit          #+#    #+#              #
-#    Updated: 2025/08/31 03:56:38 by sarfreit         ###   ########.fr        #
+#    Created: 2025/11/17 23:01:48 by sarfreit          #+#    #+#              #
+#    Updated: 2025/11/17 23:01:48 by sarfreit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------------------------------------------------------------------------- #
 # Compiler and flags
 # --------------------------------------------------------------------------- #
-CC      := gcc
+CC      := cc
 CFLAGS  := -Wall -Wextra -Werror -I .
 
 # --------------------------------------------------------------------------- #
 # Library name
 # --------------------------------------------------------------------------- #
-NAME    := ftprintf.a
+NAME    := libftprintf.a
 
 # --------------------------------------------------------------------------- #
-# Mandatory part sources
+# ft_printf sources
 # --------------------------------------------------------------------------- #
-SRCS    := ft_strlen.c \
-           ft_putchar_fd.c \
-           ft_putstr_fd.c \
-           ft_putnbr_fd.c
+SRCS    := mandatory/ft_printf.c \
+           ft_printf_utils.c
 
-OBJS    := $(SRCS:.c=.o)
+BONUS_SRCS := bonus_flags/ft_printf_bonus.c \
+              mandatory/ft_printf_utils.c \
+              bonus_flags/ft_flags_bonus.c
+
+OBJS        := $(SRCS:.c=.o)
+BONUS_OBJS  := $(BONUS_SRCS:.c=.o)
 
 # --------------------------------------------------------------------------- #
 # Rules
@@ -37,7 +40,14 @@ OBJS    := $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $^
+	@$(MAKE) -C libft
+	cp libft/libft.a $(NAME)
+	ar rcs $(NAME) $(OBJS)
+
+bonus: $(BONUS_OBJS)
+	@$(MAKE) -C libft
+	cp libft/libft.a $(NAME)
+	ar rcs $(NAME) $(BONUS_OBJS)
 
 # --------------------------------------------------------------------------- #
 # Generic compile rule
@@ -49,12 +59,14 @@ $(NAME): $(OBJS)
 # Clean rules
 # --------------------------------------------------------------------------- #
 clean:
-	rm -f $(OBJS)
+	@$(MAKE) -C libft clean
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@$(MAKE) -C libft fclean
+	rm -f $(OBJS) $(NAME) $(BONUS_OBJS)
 
 re: fclean all
 
 # --------------------------------------------------------------------------- #
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

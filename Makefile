@@ -26,7 +26,7 @@ LIBFT_DIR  := libft
 LIBFT_A    := $(LIBFT_DIR)/libft.a
 
 PRINTF_DIR := ft_printf
-PRINTF_A   := $(PRINTF_DIR)/ftprintf.a
+PRINTF_A   := $(PRINTF_DIR)/libftprintf.a
 
 # --------------------------------------------------------------------------- #
 # Mandatory part sources
@@ -39,7 +39,8 @@ SRCS    := error_checker.c \
 		   print_operations.c \
 		   stack_pos.c \
 		   stack_sort.c \
-		   stack_utils.c
+		   stack_utils.c \
+		   sort_small_alg.c
 
 OBJS    := $(SRCS:.c=.o)
 

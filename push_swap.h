@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 01:43:23 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/23 13:28:51 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,9 @@ void		print_moves(char *op, t_stack **a, t_stack **b);
 
 // parse_args.c | Check for errors and prepare stack a
 int			parse_args(t_stack **a, int argc, char *argv[]);
+
+// sort_small_alg.c | Sorts in 3's and 5's
+void	sort_three(t_stack **a, t_stack **b);
+
 
 #endif
