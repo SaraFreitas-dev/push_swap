@@ -120,7 +120,7 @@ To verify if the output of `push_swap` correctly sorts the stack, use the checke
 It returns simply OK or KO.
 
 ```bash
-./push_swap 3 2 1 | ./checker_linux 3 2 1
+./push_swap 3 2 1 | ./checkers/checker_linux 3 2 1
 ```
 
 If the input is already sorted, the program produces no output.
