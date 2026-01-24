@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 22:20:56 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/24 13:56:29 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,12 @@ typedef struct s_ps
 int			ft_strcmp(const char *s1, const char *s2);
 long 		ft_atol(char *s);
 
-// stack_uitls.c | Check size, verify, find and prepare the stack a
+// stack_utils.c | Check size, verify, find and prepare the stack a
 t_stack		*last_node(t_stack *stack);
 void		add_node(t_stack **lst, t_stack *new, char *type);
 t_stack		*new_node(int value);
 int			stack_size(t_stack *stack);
 void		free_stack(t_stack **stack);
-
-// stack_sort.c | Check size, verify, find and prepare the stack a
-int			is_sorted(t_stack *stack);
-void		sort_dispatcher(t_stack **a, t_stack **b);
 
 // stack_pos.c  | Positions, index, min and max node values
 t_stack		*stack_min_node(t_stack *stack);
@@ -68,6 +64,8 @@ void		print_moves(char *op, t_stack **a, t_stack **b);
 
 // parse_args.c | Check for errors and prepare stack a
 int			parse_args(t_stack **a, int argc, char *argv[]);
+int			is_sorted(t_stack *stack);
+void		sort_dispatcher(t_stack **a, t_stack **b);
 
 // sort_small_alg.c | Sorts in 3's and 5's
 void		sort_three(t_stack **a, t_stack **b);

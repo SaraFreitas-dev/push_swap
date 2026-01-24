@@ -38,9 +38,8 @@ SRCS    := error_checker.c \
            parse_args.c \
 		   print_operations.c \
 		   stack_pos.c \
-		   stack_sort.c \
 		   stack_utils.c \
-		   sort_small_alg.c
+		   algorithms/sort_small_alg.c
 
 OBJS    := $(SRCS:.c=.o)
 
