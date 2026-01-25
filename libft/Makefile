@@ -56,7 +56,9 @@ SRCS    := ft_isalnum.c \
            ft_itoa.c \
            ft_strmapi.c \
            ft_striteri.c \
-           ft_putnbr_fd.c
+           ft_putnbr_fd.c \
+		   ft_strcmp.c \
+		   ft_atol.c
 
 OBJS    := $(SRCS:.c=.o)
 
@@ -71,7 +73,7 @@ BONUS_SRCS := ft_lstnew_bonus.c \
               ft_lstdelone_bonus.c \
               ft_lstclear_bonus.c \
               ft_lstiter_bonus.c \
-              ft_lstmap_bonus.c
+              ft_lstmap_bonus.c \
 
 BONUS_OBJS := $(BONUS_SRCS:.c=.o)
 

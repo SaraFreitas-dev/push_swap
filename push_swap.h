@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/25 13:20:46 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:01:57 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ typedef struct s_stack
     int             index;
     struct s_stack  *next;
 }   t_stack;
-
-// helper_functions.c
-int			ft_strcmp(const char *s1, const char *s2);
-long 		ft_atol(char *s);
 
 // stack_utils.c | Check size, verify, find and prepare the stack a
 t_stack		*last_node(t_stack *stack);
@@ -64,16 +60,18 @@ void		sort_three(t_stack **a, t_stack **b);
 void		sort_five(t_stack **a, t_stack **b);
 
 // chunk_helpers.c | choose best costs to do a move
-int	best_in_range(t_stack *a, int low, int high);
-int	get_chunk_size(int stack_size);
-void	rotate_a_to_pos(t_stack **a, t_stack **b, int pos);
+int			best_in_range(t_stack *a, int low, int high);
+int			get_chunk_size(int stack_size);
 
-// chunk_rotations.c | Make the necessary moves on B before transfering the num to A
-void bring_b_max_to_top(t_stack **a, t_stack **b);
-void	push_chunks_to_b(t_stack **a, t_stack **b);
+// chunk_rotations.c | Plans and executes rotations
+void		push_chunks_to_b(t_stack **a, t_stack **b);
+void		rotate_a_to_pos(t_stack **a, t_stack **b, int pos);
+void		bring_b_max_to_top(t_stack **a, t_stack **b);
 
 // chunk_final.c | Calls the chunk algorithm
-void	chunk_sort(t_stack **a, t_stack **b);
+void		chunk_sort(t_stack **a, t_stack **b);
+void		push_back_to_a(t_stack **a, t_stack **b);
+void		final_rotate_min_top(t_stack **a, t_stack **b);
 
 // FOR TESTS ONLY - Main and is_sort
 void		print_op_test(t_stack *a, t_stack *b);

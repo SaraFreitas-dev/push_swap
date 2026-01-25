@@ -58,7 +58,7 @@ void	smart_push_to_b(t_stack **a, t_stack **b, int low, int high)
 	if (!b || !*b)
 		return ;
 	middle_of_chunk = (low + high) / 2;
-	if (((*b)->index != low) && ((*b)->index < middle_of_chunk))
+	if ((*b)->index <= middle_of_chunk)
 		print_moves("rb", a, b);
 }
 
@@ -124,4 +124,3 @@ void bring_b_max_to_top(t_stack **a, t_stack **b)
 			print_moves("rrb", a, b);
 	}
 } 
-

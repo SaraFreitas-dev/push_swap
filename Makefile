@@ -32,7 +32,6 @@ PRINTF_A   := $(PRINTF_DIR)/libftprintf.a
 # Mandatory part sources
 # --------------------------------------------------------------------------- #
 SRCS    := error_checker.c \
-		   helper_functions.c \
            main.c \
            move_operations.c \
            parse_args.c \

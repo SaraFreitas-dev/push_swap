@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 23:37:18 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/21 23:37:18 by sarfreit         ###   ########.fr       */
+/*   Created: 2026/01/25 14:59:59 by sarfreit          #+#    #+#             */
+/*   Updated: 2026/01/25 14:59:59 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -25,29 +25,3 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
-
-long	ft_atol(char *s)
-{
-	long int	result;
-	int			sign;
-	int			i;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-	while ((s[i] == 32) || ((s[i] >= 9) && (s[i] <= 13)))
-		i++;
-	if ((s[i] == '-') || (s[i] == '+'))
-	{
-		if (s[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while ((s[i] >= '0') && (s[i] <= '9'))
-	{
-		result = result * 10 + (s[i] - '0');
-		i++;
-	}
-	return (result * sign);
-}
-

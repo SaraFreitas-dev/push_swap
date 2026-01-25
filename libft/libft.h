@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 03:42:22 by sarfreit          #+#    #+#             */
-/*   Updated: 2025/10/25 00:28:56 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:02:30 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//---------------EXTRAS---------------
+
+int		ft_strcmp(const char *s1, const char *s2);
+long	ft_atol(char *s);
 
 #endif
