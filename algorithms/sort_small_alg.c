@@ -50,13 +50,10 @@ void	sort_five(t_stack **a, t_stack **b)
 				print_moves("rra", a, b);
 		print_moves("pb", a, b);
 		size--;
-		print_op_test(*a, *b);
 	}
 	sort_three(a, b);
-	print_op_test(*a, *b);
 	if (((*b)->next) && ((*b)->value < (*b)->next->value))
 		print_moves("sb", a, b);
 	while (*b)
 		print_moves("pa", a, b);
-	print_op_test(*a, *b);
 }

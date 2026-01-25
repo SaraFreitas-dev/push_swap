@@ -6,22 +6,22 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/25 22:54:50 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/25 23:07:34 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
+# include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
-    int             value;
-    int             index;
-    struct s_stack  *next;
-}   t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}	t_stack;
 
 // stack_utils.c | Check size, verify, find and prepare the stack a
 t_stack		*last_node(t_stack *stack);

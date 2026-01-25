@@ -70,14 +70,13 @@ int	parse_args(t_stack **a, int argc, char *argv[])
 	return (1);
 }
 
-
 int	is_sorted(t_stack *stack)
 {
 	t_stack	*node;
 	t_stack	*next_node;
 
 	node = stack;
-	if ( (!node) || (!node->next))
+	if ((!node) || (!node->next))
 		return (1);
 	while (node->next)
 	{
@@ -92,7 +91,7 @@ int	is_sorted(t_stack *stack)
 
 void	sort_dispatcher(t_stack **a, t_stack **b)
 {
-    int 	size_a;
+	int	size_a;
 
 	if (is_sorted(*a))
 		return ;

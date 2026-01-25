@@ -29,6 +29,7 @@ t_stack	*stack_min_node(t_stack *stack)
 	}
 	return (min_node);
 }
+
 t_stack	*stack_max_node(t_stack *stack)
 {
 	t_stack	*max_node;
@@ -46,9 +47,10 @@ t_stack	*stack_max_node(t_stack *stack)
 	}
 	return (max_node);
 }
+
 // For example, find index of the max/min number
 
-int		position_of_node(t_stack *stack, t_stack *target)
+int	position_of_node(t_stack *stack, t_stack *target)
 {
 	int		index;
 	t_stack	*node;
@@ -68,7 +70,7 @@ int		position_of_node(t_stack *stack, t_stack *target)
 }
 
 // For each number to have an index, sorted by raking
-// "How many values are smaller than runner?" 2(index=1), 1(index=0), 3(index=2), 4(index=3)
+// "How many values are smaller than runner?"
 
 void	assign_index(t_stack *stack)
 {
@@ -108,5 +110,3 @@ int	position_by_index(t_stack *s, int target_idx)
 	}
 	return (-1);
 }
-
-

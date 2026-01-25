@@ -24,7 +24,7 @@ void	rotate_a_to_pos(t_stack **a, t_stack **b, int pos)
 
 	len = stack_size(*a);
 	if ((pos < 0) || (pos >= len))
-			return ;
+		return ;
 	if (pos <= (len / 2))
 	{
 		moves = pos;
@@ -33,7 +33,7 @@ void	rotate_a_to_pos(t_stack **a, t_stack **b, int pos)
 			print_moves("ra", a, b);
 			moves--;
 		}
-	}	
+	}
 	else
 	{
 		moves = len - pos;
@@ -47,7 +47,8 @@ void	rotate_a_to_pos(t_stack **a, t_stack **b, int pos)
 
 /*
 After pb / everytime stack b receives a new number,
-Checks if its better to move it to the bottom of the stack to organize or to the top
+Checks if its better to move it to the bottom 
+of the stack to organize or to the top
 To leave bigger values at the top to later move them to stack a
 */
 
@@ -124,6 +125,3 @@ void	bring_b_max_to_top(t_stack **a, t_stack **b)
 			print_moves("rrb", a, b);
 	}
 }
-
-
-

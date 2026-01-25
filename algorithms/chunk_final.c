@@ -29,7 +29,7 @@ void	push_back_to_a(t_stack **a, t_stack **b)
 // After a chunk transfer B->A
 // Rotate stack A until the lowest num is at the top
 
-void final_rotate_min_top(t_stack **a, t_stack **b)
+void	final_rotate_min_top(t_stack **a, t_stack **b)
 {
 	t_stack	*min_node;
 	int		pos;

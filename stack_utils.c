@@ -67,7 +67,7 @@ t_stack	*new_node(int value)
 
 int	stack_size(t_stack *stack)
 {
-    int		counter;
+	int		counter;
 	t_stack	*node;
 
 	counter = 0;

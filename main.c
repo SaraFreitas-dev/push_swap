@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/25 13:05:01 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/25 22:58:18 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,3 @@ int	main(int argc, char **argv)
 	free_stack(&b);
 	return (0);
 }
-
-
