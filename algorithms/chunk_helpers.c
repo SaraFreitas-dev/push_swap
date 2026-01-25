@@ -97,3 +97,4 @@ int	best_in_range(t_stack *a, int low, int high)
 		return (last_index);
 }
 
+

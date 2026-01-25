@@ -93,3 +93,20 @@ void	assign_index(t_stack *stack)
 		node = node->next;
 	}
 }
+
+int	position_by_index(t_stack *s, int target_idx)
+{
+	int	pos;
+
+	pos = 0;
+	while (s)
+	{
+		if (s->index == target_idx)
+			return (pos);
+		s = s->next;
+		pos++;
+	}
+	return (-1);
+}
+
+

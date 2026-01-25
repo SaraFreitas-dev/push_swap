@@ -47,7 +47,7 @@ void	rotate_a_to_pos(t_stack **a, t_stack **b, int pos)
 
 /*
 After pb / everytime stack b receives a new number,
-Checks if its better to move it to the bottom of the stack to organize
+Checks if its better to move it to the bottom of the stack to organize or to the top
 To leave bigger values at the top to later move them to stack a
 */
 
@@ -97,21 +97,21 @@ void	push_chunks_to_b(t_stack **a, t_stack **b)
 }
 
 // Bring the max number of stack b to the top
-
-void bring_b_max_to_top(t_stack **a, t_stack **b)
+/**/
+void	bring_b_max_to_top(t_stack **a, t_stack **b)
 {
-	t_stack	*max_num;
-	int		stack_len;
-	int		pos;
-	int		moves;
+	int	stack_len;
+	int	pos;
+	int	moves;
+	int	max_idx;
 
 	if (!b || !*b)
 		return ;
-	stack_len = stack_size(*b);	
-	max_num = stack_max_node(*b);
-	pos = position_of_node(*b, max_num);
-	if (*b == max_num)
-    	return ;
+	stack_len = stack_size(*b);
+	max_idx = stack_len - 1;
+	pos = position_by_index(*b, max_idx);
+	if (pos <= 0)
+		return ;
 	if (pos <= (stack_len / 2))
 		moves = pos;
 	else
@@ -123,4 +123,7 @@ void bring_b_max_to_top(t_stack **a, t_stack **b)
 		else
 			print_moves("rrb", a, b);
 	}
-} 
+}
+
+
+

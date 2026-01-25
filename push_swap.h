@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/25 15:01:57 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/25 22:54:50 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_stack		*stack_min_node(t_stack *stack);
 t_stack		*stack_max_node(t_stack *stack);
 int			position_of_node(t_stack *stack, t_stack *target);
 void		assign_index(t_stack *stack);
+int			position_by_index(t_stack *s, int target_idx);
 
 // error_checker
 int			is_valid_int_token(char *s);
