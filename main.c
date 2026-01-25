@@ -6,11 +6,13 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:44:12 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/23 22:28:00 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/25 13:05:01 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// For tests purpose only !
 
 void	print_op_test(t_stack *a, t_stack *b)
 {

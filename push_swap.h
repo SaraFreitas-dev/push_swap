@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/24 13:56:29 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/25 13:20:46 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@ typedef struct s_stack
     int             index;
     struct s_stack  *next;
 }   t_stack;
-
-typedef struct s_ps
-{
-    t_stack *a;
-    t_stack *b;
-    int     size_a;
-    int     size_b;
-}   t_ps;
 
 // helper_functions.c
 int			ft_strcmp(const char *s1, const char *s2);
@@ -70,6 +62,18 @@ void		sort_dispatcher(t_stack **a, t_stack **b);
 // sort_small_alg.c | Sorts in 3's and 5's
 void		sort_three(t_stack **a, t_stack **b);
 void		sort_five(t_stack **a, t_stack **b);
+
+// chunk_helpers.c | choose best costs to do a move
+int	best_in_range(t_stack *a, int low, int high);
+int	get_chunk_size(int stack_size);
+void	rotate_a_to_pos(t_stack **a, t_stack **b, int pos);
+
+// chunk_rotations.c | Make the necessary moves on B before transfering the num to A
+void bring_b_max_to_top(t_stack **a, t_stack **b);
+void	push_chunks_to_b(t_stack **a, t_stack **b);
+
+// chunk_final.c | Calls the chunk algorithm
+void	chunk_sort(t_stack **a, t_stack **b);
 
 // FOR TESTS ONLY - Main and is_sort
 void		print_op_test(t_stack *a, t_stack *b);

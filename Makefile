@@ -39,7 +39,10 @@ SRCS    := error_checker.c \
 		   print_operations.c \
 		   stack_pos.c \
 		   stack_utils.c \
-		   algorithms/sort_small_alg.c
+		   algorithms/sort_small_alg.c \
+		   algorithms/chunk_final.c \
+		   algorithms/chunk_helpers.c \
+		   algorithms/chunk_rotations.c \
 
 OBJS    := $(SRCS:.c=.o)
 

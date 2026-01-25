@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-// Decide the chink size that will go to stack b to order
+// Decide the chunk size that will go to stack b to order
 
 int	get_chunk_size(int stack_size)
 {
 	if (stack_size <= 50)
 		return (10);
 	else if (stack_size <= 100)
-		return (20);
+		return (18);
 	else if (stack_size <= 500)
-		return (50);
+		return (60);
 	else
-		return (100);
+		return (90);
 }
 
 // Check if the current node is still to be pushed to stack b
@@ -75,9 +75,25 @@ int	pos_last_in_range(t_stack *a, int low, int high)
 	return (last);
 }
 
-// Choose the easiest move, the first element or the last in range (to do less moves)
+// Choose the index location of the number easier to move
+// The first element or the last in range (to do less moves)
 
 int	best_in_range(t_stack *a, int low, int high)
 {
-	
+	t_stack	*node;
+	int		first_index;
+	int		last_index;
+	int		stack_len;
+
+	node = a;
+	first_index = pos_first_in_range(node, low, high);
+	last_index = pos_last_in_range(node, low, high);
+	stack_len = stack_size(node);
+	if (first_index == -1)
+		return (-1);
+	if (first_index <= (stack_len - last_index))
+		return (first_index);
+	else
+		return (last_index);
 }
+

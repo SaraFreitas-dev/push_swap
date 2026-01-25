@@ -140,6 +140,41 @@ You can also check the amount of operations performed to sort ARG by adding "wc 
 ARG="5 4 3 2 1"; ./push_swap $ARG | wc -l
 ```
 
+And finally, get an average of moves made
+
+```bash
+  total=0
+for i in {1..20}; do
+  ARG=$(shuf -i 0-1000 -n 100 | tr '\n' ' ')
+  n=$(./push_swap $ARG | wc -l)
+  echo $n
+  total=$((total+n))
+done
+echo "Average: $((total/20))"
+
+670
+674
+663
+667
+683
+690
+661
+654
+655
+638
+618
+660
+678
+654
+641
+684
+675
+690
+655
+677
+Average: 664
+```
+
 If the input is already sorted, the program produces no output.
 
 # Check for Leaks

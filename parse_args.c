@@ -96,9 +96,12 @@ void	sort_dispatcher(t_stack **a, t_stack **b)
 
 	if (is_sorted(*a))
 		return ;
+	assign_index(*a);
 	size_a = stack_size(*a);
 	if (size_a <= 3)
 		sort_three(a, b);
 	else if (size_a <= 5)
 		sort_five(a, b);
-	}
+	else
+		chunk_sort(a, b);
+}
