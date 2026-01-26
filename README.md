@@ -1,8 +1,8 @@
 *This project has been created as part of the 42 curriculum by sarfreit.*
 
-# push_swap
+# 🔢 push_swap
 
-## Description
+## 🧠 Description
 
 `push_swap` is a project from 42 School that focuses on sorting algorithms and
 data manipulation.
@@ -13,8 +13,9 @@ The program works with:
 - **Stack A**, which initially contains the integers.
 - **Stack B**, which starts empty and is used as auxiliary storage.
 
+---
 
-## Project Structure
+## 🛠️ Project Structure
 
 - **main.c**  
   Program entry point. Initializes stacks, parses input, checks if the stack is already sorted, and calls the sorting dispatcher.
@@ -51,7 +52,7 @@ The program works with:
 
 ---
 
-## Allowed Operations
+## ♻️ Allowed Operations
 
 - **sa** : swap the first two elements of stack A  
 - **sb** : swap the first two elements of stack B  
@@ -68,7 +69,9 @@ The program works with:
 - **rrb** : reverse rotate stack B  
 - **rrr** : rra and rrb at the same time  
 
-## Error Handling
+---
+
+## 🚨 Error Handling
 
 The program displays:
 
@@ -84,9 +87,9 @@ All allocated memory is freed before exiting.
 
 ---
 
-## Instructions
+## 📋 Instructions
 
-### Compilation
+### ⚙️ Compilation
 
 To compile the program, run:
 
@@ -100,7 +103,7 @@ This will generate the executable:
 ./push_swap
 ```
 
-## Execution
+## 🚀 Execution
 
 The program takes a list of integers as arguments:
 
@@ -114,7 +117,7 @@ sa
 rra
 ```
 
-## Checker
+## ✅ Checker
 
 To verify if the output of `push_swap` correctly sorts the stack, use the checker.
 It returns simply OK or KO.
@@ -163,7 +166,7 @@ Average: 664
 
 If the input is already sorted, the program produces no output.
 
-# Check for Leaks
+# 💧 Check for Leaks
 ```bash
 valgrind --leak-check=full --show-leak-kinds=all ./push_swap
 ```
@@ -172,7 +175,7 @@ valgrind --leak-check=full --show-leak-kinds=all ./push_swap_bonus
 ```
 ---
 
-## Resources
+## 🌐 Resources
 
 - 42 School subject: `push_swap`  
 - The following website: https://medium.com/@ulysse.gks/push-swap-in-less-than-4200-operations-c292f034f6c0
