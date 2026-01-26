@@ -6,15 +6,15 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/26 16:26:11 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:35:39 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "libs/libft/libft.h"
+# include "libs/ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {

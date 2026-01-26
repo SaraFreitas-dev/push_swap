@@ -22,10 +22,10 @@ INCS    := -I . -I libft -I ft_printf
 # --------------------------------------------------------------------------- #
 NAME    := push_swap
 
-LIBFT_DIR  := libft
+LIBFT_DIR  := libs/libft
 LIBFT_A    := $(LIBFT_DIR)/libft.a
 
-PRINTF_DIR := ft_printf
+PRINTF_DIR := libs/ft_printf
 PRINTF_A   := $(PRINTF_DIR)/libftprintf.a
 
 # --------------------------------------------------------------------------- #
