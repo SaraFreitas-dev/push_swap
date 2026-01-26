@@ -15,43 +15,6 @@ The program works with:
 
 ---
 
-## 🛠️ Project Structure
-
-- **main.c**  
-  Program entry point. Initializes stacks, parses input, checks if the stack is already sorted, and calls the sorting dispatcher.
-
-- **push_swap.h**  
-  Main header file containing all struct definitions, function prototypes, and required library includes.
-
-- **error_checker.c**  
-  Input validation helpers used to detect errors such as non-numeric values, overflow, and duplicates.
-
-- **parse_args.c**  
-  Parses and validates input arguments. Builds stack A while checking for invalid numbers, duplicates, and integer limits.
-
-- **move_operations.c**  
-  Implements the core stack operations / moves (`sa`, `sb`, `pa`, `pb`, `ra`, `rb`, `rra`, `rrb`).
-
-- **print_operations.c**  
-  Executes stack operations and prints the corresponding instructions to the standard output.
-
-- **stack_utils.c**  
-  General stack utility functions (node creation, stack size, and basic helpers).
-
-- **stack_pos.c**  
-  Stack analysis helpers, including functions to find minimum/maximum nodes and a node’s position in the stack.
-
-- **stack_sort.c**  
-  Sorting logic and dispatcher. Selects the appropriate algorithm (`sort_three`, `sort_five`, or `turk_sort`) based on stack size.
-
-- **helper_functions.c**  
-  Miscellaneous helper functions used throughout the project.
-
-- **Makefile**  
-  Build configuration for compiling the project and linking required libraries.
-
----
-
 ## ♻️ Allowed Operations
 
 - **sa** : swap the first two elements of stack A  
