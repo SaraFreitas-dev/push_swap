@@ -21,7 +21,7 @@ int	get_chunk_size(int stack_size)
 	else if (stack_size <= 100)
 		return (18);
 	else if (stack_size <= 500)
-		return (60);
+		return (45);
 	else
 		return (90);
 }
