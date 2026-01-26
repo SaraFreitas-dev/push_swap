@@ -65,7 +65,6 @@ void	smart_push_to_b(t_stack **a, t_stack **b, int low, int high)
 
 /*
 Main loop A->B
-When best_in_range == -1, it goes of to the next chunk
 */
 
 void	push_chunks_to_b(t_stack **a, t_stack **b)

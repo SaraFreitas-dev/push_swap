@@ -6,7 +6,7 @@
 /*   By: sarfreit <sarfreit@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 20:50:26 by sarfreit          #+#    #+#             */
-/*   Updated: 2026/01/25 23:07:34 by sarfreit         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:26:11 by sarfreit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,8 @@ void		bring_b_max_to_top(t_stack **a, t_stack **b);
 
 // chunk_final.c | Calls the chunk algorithm
 void		chunk_sort(t_stack **a, t_stack **b);
-void		push_back_to_a(t_stack **a, t_stack **b);
-void		final_rotate_min_top(t_stack **a, t_stack **b);
 
 // FOR TESTS ONLY - Main and is_sort
-void		print_op_test(t_stack *a, t_stack *b);
+// void		print_op_test(t_stack *a, t_stack *b);
 
 #endif
